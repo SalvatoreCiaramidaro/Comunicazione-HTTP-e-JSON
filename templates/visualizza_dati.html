@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visualizza Dati</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/visualizza_dati.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Dati dal JSON</h1>
+        <p><strong>Titolo:</strong> {{ data.title }}</p>
+        <p><strong>Anno:</strong> {{ data.year }}</p>
+        <p><strong>Autore:</strong> {{ data.author }}</p>
+        <p><strong>Genere:</strong> {{ data.genre }}</p>
+        <p><strong>Casa Editrice:</strong> {{ data.publisher }}</p>
+    </div>
+</body>
+</html>

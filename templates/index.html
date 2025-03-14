@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Add proper reference to the JavaScript file -->
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Invio e ricezione di dati tramite HTTP</h1>
+        <p>Compila i campi sottostanti e premi il pulsante "Submit" per inviare i dati al server.</p>
+        <form action="/invio_ricezione_http" method="POST" onsubmit="return controllo_dati(event)">
+            <label for="titolo">Titolo:</label>
+            <input type="text" name="titolo" id="titolo" /><br>
+
+            <label for="scrittore">Scrittore:</label>
+            <input type="text" name="scrittore" id="scrittore" /><br>
+
+            <label for="genere">Genere: </label>
+            <input type="genere" id="genere" name="genere" required><br>
+
+            <label for="anno">Anno:</label>
+            <input type="text" name="anno" id="anno" /><br>
+            
+            <label for="casa_editrice">Casa Editrice: </label>
+            <input type="casa_editrice" id="casa_editrice" name="casa_editrice" required><br>
+            
+            <input type="submit" value="invia" />
+        </form>
+        <div id="error" style="color: red;"></div>
+    </div>
+</body>
+</html>

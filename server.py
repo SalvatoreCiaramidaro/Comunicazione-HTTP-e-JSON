@@ -1,8 +1,6 @@
 import flask
-
 import json
-
-from flask import (render_template,request)
+from flask import render_template, request, redirect, url_for
 
 app = flask.Flask(__name__)
 
@@ -26,7 +24,13 @@ def invio_ricezione_http():
                 "publisher": casa_editrice
             }
         json.dump(data, file)
-    return data
+    return redirect(url_for('visualizza_dati'))
+
+@app.route('/visualizza_dati')
+def visualizza_dati():
+    with open('data.json', 'r') as file:
+        data = json.load(file)
+    return render_template('visualizza_dati.html', data=data)
 
 if __name__ == "__main__":
     app.run(debug=True, port=50001)
