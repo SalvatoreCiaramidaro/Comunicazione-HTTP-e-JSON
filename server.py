@@ -14,15 +14,19 @@ def index():
 def invio_ricezione_http():
     titolo = request.form['titolo']
     anno = request.form['anno']
-    autore = request.form['autore']
-    with open('Invio_ricezione_http/data.json', 'w') as file:
+    scrittore = request.form['scrittore']
+    genere = request.form['genere']
+    casa_editrice = request.form['casa_editrice']
+    with open('data.json', 'w') as file:
         data = {
-                "titolo": titolo,
-                "anno": anno,
-                "autore": autore
+                "title": titolo,
+                "year": anno,
+                "author": scrittore,
+                "genre": genere,
+                "publisher": casa_editrice
             }
         json.dump(data, file)
     return data
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5678)
+    app.run(debug=True, port=50001)
